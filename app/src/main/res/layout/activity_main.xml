@@ -4,17 +4,18 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_main"
-    android:padding="3dp"
     tools:context="com.app.vpgroup.memopad_luutrukhoanhkhac.MainActivity">
 
    <LinearLayout
+       android:weightSum="10"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:orientation="vertical">
 
        <LinearLayout
            android:weightSum="10"
+           android:layout_weight="0.1"
+           android:gravity="center"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:orientation="horizontal">
@@ -42,13 +43,18 @@
        </LinearLayout>
 
        <ListView
+           android:layout_weight="8.9"
            android:id="@+id/listView"
            android:background="@drawable/boder_layout"
            android:layout_marginTop="5dp"
            android:layout_width="match_parent"
-           android:layout_height="match_parent"></ListView>
+           android:layout_height="0dp"></ListView>
 
-
+       <com.google.android.gms.ads.AdView
+           android:padding="1dp"
+           android:layout_weight="1"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"></com.google.android.gms.ads.AdView>
    </LinearLayout>
 
 </RelativeLayout>
