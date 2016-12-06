@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class AdapterMemoPad extends BaseAdapter {
     Context myContext;
@@ -43,16 +44,14 @@ public class AdapterMemoPad extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(myLayout, viewGroup,false);
 
-        TextView txtTitle = (TextView) view.findViewById(R.id.txtTitleNew);
+        TextView txtTitle = (TextView) view.findViewById(R.id.txtTitle);
         txtTitle.setText(arrMemoPad.get(i).title);
 
-        TextView txtContent = (TextView) view.findViewById(R.id.txtContentNew);
-
-        Calendar c = Calendar.getInstance();
-        int hour = c.get(Calendar.HOUR);
-        int minute = c.get(Calendar.MINUTE);
-//        int date = c.get(Calendar.DATE);
-        txtContent.setText(hour + ":" + minute );
+        TextView txtDate = (TextView) view.findViewById(R.id.txtDate);
+        Calendar c = Calendar.getInstance(Locale.ROOT);
+        int Gio = c.get(Calendar.HOUR_OF_DAY);
+        int phut = c.get(Calendar.MINUTE);
+        txtDate.setText(Gio + " : " + phut);
 
         ImageView imgView = (ImageView) view.findViewById(R.id.imgViewNew);
         imgView.setImageResource(R.drawable.image_demo);
