@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,24 +21,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AddControl();
 
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lann gia"));
-
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
+        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
 
         adapter = new AdapterMemoPad(MainActivity.this, R.layout.dong_ghi_chu, mangMemoPad);
         listView.setAdapter(adapter);
@@ -50,22 +45,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, NewActivity.class);
                 startActivity(intent);
-            }
-        });
-
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, mangMemoPad.get(i).content, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                return false;
             }
         });
     }

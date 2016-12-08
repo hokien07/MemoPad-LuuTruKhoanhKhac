@@ -8,8 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 public class AdapterMemoPad extends BaseAdapter {
@@ -44,16 +43,19 @@ public class AdapterMemoPad extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(myLayout, viewGroup,false);
 
-        TextView txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        TextView txtTitle = (TextView) view.findViewById(R.id.txtTitleNew);
         txtTitle.setText(arrMemoPad.get(i).title);
 
-        TextView txtDate = (TextView) view.findViewById(R.id.txtDate);
-        SimpleDateFormat date = new SimpleDateFormat("HH:mm");
-        String time = date.format(new Date());
-        txtDate.setText(time);
+        TextView txtContent = (TextView) view.findViewById(R.id.txtContentNew);
+
+        Calendar c = Calendar.getInstance();
+        int hour = c.get(Calendar.HOUR);
+        int minute = c.get(Calendar.MINUTE);
+//        int date = c.get(Calendar.DATE);
+        txtContent.setText(hour + ":" + minute );
 
         ImageView imgView = (ImageView) view.findViewById(R.id.imgViewNew);
-        imgView.setImageResource(R.drawable.ic_event_note_black_48dp);
+        imgView.setImageResource(R.drawable.image_demo);
 
         return view;
     }

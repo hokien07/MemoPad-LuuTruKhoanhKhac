@@ -1,53 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:padding="1dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imgViewNew"
+        android:src="@drawable/image_demo"
+        android:scaleType="fitXY"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
     <LinearLayout
-        android:padding="5dp"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:background="@drawable/boder_layout"
+        android:layout_marginLeft="3dp"
+        android:gravity="start"
+        android:weightSum="10"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp">
 
-        <ImageView
-            android:id="@+id/imgViewNew"
-            android:src="@drawable/ic_event_note_black_48dp"
-            android:background="@null"
-            android:scaleType="fitXY"
-            android:layout_width="50dp"
-            android:layout_height="50dp" />
-
-        <LinearLayout
-            android:gravity="center"
-            android:weightSum="10"
-            android:orientation="vertical"
-            android:layout_marginLeft="3dp"
+        <TextView
+            android:background="@drawable/boder_layout"
+            android:id="@+id/txtTitleNew"
+            android:gravity="fill_vertical"
+            android:textSize="20sp"
+            android:layout_weight="7.5"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="0dp" />
 
-            <TextView
-                android:id="@+id/txtTitle"
-                android:text="Title"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="start|center"
-                android:layout_weight="6"
-                android:layout_width="match_parent"
-                android:layout_height="0dp" />
+        <TextView
+            android:gravity="fill_vertical"
+            android:background="@drawable/boder_layout"
+            android:id="@+id/txtContentNew"
+            android:layout_marginTop="2dp"
+            android:layout_weight="2.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+    </LinearLayout>
 
-            <TextView
-                android:text="00:00"
-                android:textSize="18sp"
-               android:layout_gravity="center"
-                android:gravity="start|top"
-                android:textStyle="italic"
-                android:layout_weight="4"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:id="@+id/txtDate"/>
-    </LinearLayout>
-    </LinearLayout>
+
 </LinearLayout>
