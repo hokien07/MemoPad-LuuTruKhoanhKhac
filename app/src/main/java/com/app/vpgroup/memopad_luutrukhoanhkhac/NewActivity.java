@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class NewActivity extends AppCompatActivity {
     Button btnSave;
+    final String DATABASE_NAME = "MemoPad.sqlite";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,6 @@ public class NewActivity extends AppCompatActivity {
     }
 
     private void AddControl(){
-        btnSave = (Button)findViewById(R.id.btnSave);
+        btnSave = (Button)findViewById(R.id.btnSaveNew);
     }
 }

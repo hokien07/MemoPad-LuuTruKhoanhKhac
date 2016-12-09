@@ -55,7 +55,7 @@ public class AdapterMemoPad extends BaseAdapter {
         txtContent.setText(hour + ":" + minute );
 
         ImageView imgView = (ImageView) view.findViewById(R.id.imgViewNew);
-        imgView.setImageResource(R.drawable.image_demo);
+        imgView.setImageResource(R.drawable.ic_event_note_black_48dp);
 
         return view;
     }

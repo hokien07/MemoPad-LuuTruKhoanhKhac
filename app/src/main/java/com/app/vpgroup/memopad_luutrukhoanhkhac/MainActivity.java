@@ -1,8 +1,10 @@
 package com.app.vpgroup.memopad_luutrukhoanhkhac;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -16,31 +18,25 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<MemoPad> mangMemoPad;
     AdapterMemoPad adapter = null;
 
+    final String DATABASE_NAME = "MemoPad.sqlite";
+    SQLiteDatabase databas;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AddControl();
+        ReadData();
 
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
-        mangMemoPad.add(new MemoPad("Noi nho mua dong", "anh nho em mot mua dong lanh guia"));
 
-        adapter = new AdapterMemoPad(MainActivity.this, R.layout.dong_ghi_chu, mangMemoPad);
-        listView.setAdapter(adapter);
 
+
+
+    }
+
+    private void AddControl(){
+        btnNew = (Button) findViewById(R.id.btnNew);
         btnNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,10 +45,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        listView = (ListView) findViewById(R.id.listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
+                intent.putExtra("ID",mangMemoPad.get(i).id);
+                startActivity(intent);
             }
         });
 
@@ -62,11 +61,26 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+        mangMemoPad = new ArrayList<>();
+        adapter = new AdapterMemoPad(MainActivity.this, R.layout.dong_ghi_chu, mangMemoPad);
+        listView.setAdapter(adapter);
     }
 
-    private void AddControl(){
-        btnNew = (Button) findViewById(R.id.btnNew);
-        listView = (ListView) findViewById(R.id.listView);
-        mangMemoPad = new ArrayList<>();
+    private void ReadData(){
+        databas = Database.initDatabase(MainActivity.this, DATABASE_NAME);
+        Cursor cursor = databas.rawQuery("SELECT * FROM MemoPad_info", null);
+        mangMemoPad.clear();
+
+        for(int i = 0; i < cursor.getCount(); i++){
+            cursor.moveToPosition(i);
+            int id = cursor.getInt(0);
+            String title = cursor.getString(1);
+            String content = cursor.getString(2);
+
+            mangMemoPad.add(new MemoPad(id, title, content));
+        }
+        adapter.notifyDataSetChanged();
     }
 }

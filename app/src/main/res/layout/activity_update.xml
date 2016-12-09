@@ -27,7 +27,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/edtTitleNew"
+            android:id="@+id/edtTitleUpdate"
             android:textSize="18sp"
             android:layout_weight="8"
             android:layout_width="0dp"
@@ -42,7 +42,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/edtNewContent"
+            android:id="@+id/edtContentUpdate"
             android:background="@drawable/boder_layout"
             android:gravity="start"
             android:layout_weight="9.2"
@@ -50,7 +50,7 @@
             android:layout_height="0dp" />
 
         <Button
-            android:id="@+id/btnSaveNew"
+            android:id="@+id/btnSaveUpdate"
             android:layout_marginTop="3dp"
             android:text="Save"
             android:textSize="18sp"
