@@ -5,6 +5,4 @@
     <color name="colorAccent">#FF4081</color>
 
     <!--MainActivity Color-->
-    <color name="background_main">#60605e</color>
-    <color name="background_edt">#ffff</color>
 </resources>

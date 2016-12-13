@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.app.vpgroup.memopad_luutrukhoanhkhac.MainActivity">
 
-   <LinearLayout
-       android:weightSum="10"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
-
        <LinearLayout
-           android:layout_weight="0.1"
-           android:gravity="center"
+           android:layout_margin="4dp"
+           android:weightSum="10"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:orientation="horizontal">
+           android:orientation="vertical">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <EditText
+                android:id="@+id/edtFind"
+                android:gravity="left|center"
+                android:drawableLeft="@drawable/ic_search_black_18dp"
+                android:hint="Find:"
+                android:textColorHint="#111"
+                android:textSize="18sp"
+                android:background="@drawable/boder_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_weight="9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <ListView
+                android:background="@drawable/boder_layout"
+                android:id="@+id/lisView"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
 
-           <EditText
-               android:gravity="left|center"
-               android:id="@+id/edtSearch"
-               android:drawableLeft="@drawable/ic_search_black_18dp"
-               android:hint="Find:"
-               android:textColorHint="#111"
-               android:textSize="18sp"
-               android:background="@drawable/boder_layout"
-               android:layout_width="match_parent"
-               android:layout_height="30dp"/>
        </LinearLayout>
 
-       <ListView
-           android:layout_weight="8.9"
-           android:id="@+id/listView"
-           android:layout_marginTop="5dp"
-           android:layout_width="match_parent"
-           android:layout_height="0dp"></ListView>
 
-       <com.google.android.gms.ads.AdView
-           android:padding="1dp"
-           android:layout_weight="1"
-           android:layout_width="match_parent"
-           android:layout_height="0dp"></com.google.android.gms.ads.AdView>
-   </LinearLayout>
 
 </RelativeLayout>
