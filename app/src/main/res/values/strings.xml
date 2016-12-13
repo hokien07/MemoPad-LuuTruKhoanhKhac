@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">MemoPad - Lưu Trữ Khoảnh Khắc</string>
 
-    <!--MainActivity-->
+    <!--Menu-->
+    <string name="menu_add">Thêm Mới</string>
 
+    <!--Dialog-->
+    <string name="btnThem">Thêm mới</string>
+    <string name="btnHuy">Hủy</string>
 </resources>
+
 

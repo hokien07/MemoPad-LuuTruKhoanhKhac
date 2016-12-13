@@ -7,15 +7,13 @@
 
        <LinearLayout
            android:layout_margin="4dp"
-           android:weightSum="10"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="match_parent"
            android:orientation="vertical">
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/edtFind"
                 android:gravity="left|center"
@@ -30,13 +28,11 @@
         <LinearLayout
             android:layout_marginTop="5dp"
             android:orientation="horizontal"
-            android:layout_weight="9"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="match_parent">
             <ListView
                 android:background="@drawable/boder_layout"
                 android:id="@+id/lisView"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></ListView>
         </LinearLayout>

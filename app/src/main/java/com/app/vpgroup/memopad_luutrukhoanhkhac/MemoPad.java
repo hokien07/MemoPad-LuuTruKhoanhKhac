@@ -11,6 +11,11 @@ public class MemoPad {
         this.content = content;
     }
 
+    public MemoPad(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
     public MemoPad() {
     }
 
